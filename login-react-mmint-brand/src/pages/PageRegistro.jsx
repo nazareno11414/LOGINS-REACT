@@ -1,20 +1,27 @@
-import { useNavigate } from "react-router-dom";
+import "../styles/style_loginRight.css";
+import { Routes, Route, Link } from "react-router-dom";
+import imgLogoRight from "../image/mmint_logo.png";
 export function PageRegistro() {
-  const navigate = useNavigate();
   return (
-    <div>
-      <form action="">
+    <div className="form-login">
+      <div className="form-login-marca">
+        <img src={imgLogoRight} alt="" />
+        <p className="marca-nombre">MMINT - Brand</p>
+      </div>
+      <form className="form-login-campos">
         <label htmlFor="">Usuario</label>
-        <input type="text" />
-        <label htmlFor="">Emal</label>
-        <input type="text" />
-        <label htmlFor="">contraseña</label>
-        <input type="text" />
+        <input type="text" placeholder="Nazareno.." />
+        <label htmlFor="">Email</label>
+        <input type="text" placeholder="Nazareno@.." />
+        <label htmlFor="">Contraseña</label>
+        <input type="text" placeholder="*****" />
         <label htmlFor="">repita la contraseña</label>
-        <input type="text" />
-        <button>Registrarse</button>
+        <input type="text" placeholder="*****" />
+        <button className="btn-ingresar-login">Registrarse</button>
       </form>
-      <button onClick={() => navigate(-1)}>← Volver</button>
+      <Link className="btn-volver-login" to="/">
+        ← Volver
+      </Link>
     </div>
   );
 }
