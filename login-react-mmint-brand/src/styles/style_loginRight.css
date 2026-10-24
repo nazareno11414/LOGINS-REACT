@@ -1,0 +1,155 @@
+/* ========== Contenedor del lado derecho ========== */
+.form-login {
+  min-height: 100vh;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0b0d14;
+  color: #e8e9f0;
+  text-align: center;
+}
+
+/* ========== Logo + nombre de la marca ========== */
+.form-login-marca {
+  margin-bottom: 24px;
+}
+
+.form-login-marca img {
+  width: 80px;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.marca-nombre {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px; /* letras separadas, como en el diseño */
+  text-transform: uppercase;
+  color: #8a8fa3;
+}
+
+/* ========== Título y subtítulo ========== */
+.form-login-titulo {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+}
+
+.form-login-subtitulo {
+  max-width: 280px;
+  margin: 0 0 32px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #8a8fa3;
+}
+
+/* ========== Formulario ========== */
+.form-login-campos {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left; /* los labels alineados a la izquierda */
+}
+
+.form-login-campos label {
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #b4b8c8;
+}
+
+.form-login-campos input {
+  padding: 14px 16px;
+  border: 1px solid #262a38;
+  border-radius: 12px;
+  background: #11141d;
+  color: white;
+  font-size: 15px;
+  font-family: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-login-campos input::placeholder {
+  color: #5c6175;
+}
+
+.form-login-campos input:focus {
+  outline: none;
+  border-color: #ff3ea5;
+  box-shadow: 0 0 0 3px rgba(255, 62, 165, 0.18);
+}
+
+/* ========== Link "¿Olvidaste tu contraseña?" ========== */
+.link-olvide {
+  align-self: flex-end; /* lo pega a la derecha */
+  margin-top: 4px;
+  font-size: 13px;
+  color: #ff5cb4;
+  text-decoration: none;
+}
+
+.link-olvide:hover {
+  text-decoration: underline;
+}
+
+/* ========== Botón ========== */
+.btn-ingresar-login {
+  margin-top: 16px;
+  padding: 15px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #c4105e, #ff4fb0); /* degradé rosa */
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-ingresar-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 62, 165, 0.35); /* brillo rosa */
+}
+
+/* ========== Pie ========== */
+.form-login-pie {
+  width: 100%;
+  max-width: 340px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #1e2230; /* la línea separadora */
+}
+
+.form-login-pie p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #8a8fa3;
+}
+
+.form-login-pie a {
+  color: #ff5cb4;
+  text-decoration: none;
+}
+
+.form-login-pie a:hover {
+  text-decoration: underline;
+}
+
+.pie-version {
+  margin-top: 14px !important;
+  font-size: 12px !important;
+  color: #5c6175 !important;
+}
