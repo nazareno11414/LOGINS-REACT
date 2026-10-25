@@ -201,3 +201,32 @@
 .btn-volver-login:hover {
   color: #ff5cb4;
 }
+/* ========== Mensaje de error del registro ========== */
+.error-registro {
+  margin: 4px 0 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 77, 109, 0.35);
+  border-radius: 10px;
+  background: rgba(
+    255,
+    77,
+    109,
+    0.1
+  ); /* rojo muy transparente sobre el fondo oscuro */
+  color: #ff8095;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  animation: aparecer 0.2s ease; /* entra suave en lugar de aparecer de golpe */
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
