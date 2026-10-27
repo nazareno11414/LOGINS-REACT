@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.box-terminosycodinciones {
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  width: min(90vw, 680px);
+  max-height: calc(100dvh - 72px);
+  margin: 0;
+  padding: 28px 30px 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: translate(-50%, -50%);
+  scrollbar-gutter: stable;
+  border: 1px solid rgba(33, 155, 255, 0.48);
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(85, 0, 161, 0.2),
+      transparent 34%
+    ),
+    linear-gradient(145deg, rgba(7, 19, 43, 0.98), rgba(1, 2, 20, 0.98));
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 100vmax rgba(1, 2, 20, 0.76);
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+}
+
+.box-terminosycodinciones::-webkit-scrollbar {
+  width: 6px;
+}
+
+.box-terminosycodinciones::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: linear-gradient(#219bff, #ff3dcb);
+}
+
+.box-titulo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(33, 155, 255, 0.22);
+}
+
+.logo-tyc {
+  width: 48px;
+  height: 48px;
+  padding: 11px;
+  border: 1px solid rgba(255, 61, 203, 0.65);
+  border-radius: 16px;
+  background: rgba(192, 0, 63, 0.12);
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(47%) sepia(100%) saturate(2500%)
+    hue-rotate(298deg) brightness(104%) contrast(101%);
+}
+
+.titulo-tyc {
+  margin: 0;
+  font-family: "Pattanakarn", "Fredoka", sans-serif;
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.ultima-actu-tyc {
+  margin: 13px 0 18px;
+  color: #a9b6cf;
+  font-size: 14px;
+}
+
+.ul-tyc {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: terminos;
+}
+
+.ul-tyc li {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 14px 16px 14px 50px;
+  border: 1px solid rgba(33, 155, 255, 0.18);
+  border-radius: 14px;
+  background: rgba(1, 2, 20, 0.42);
+  counter-increment: terminos;
+}
+
+.ul-tyc li::before {
+  content: counter(terminos);
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ff3dcb;
+  border-radius: 50%;
+  color: #ff3dcb;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ul-tyc h4 {
+  margin: 0 0 5px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ul-tyc p {
+  margin: 0;
+  color: #b7c7e4;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.ul-tyc a {
+  display: inline-block;
+  margin-left: 5px;
+  color: #ff3dcb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ul-tyc a:hover {
+  text-decoration: underline;
+}
+
+.button-entendido {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(100deg, #c0003f, #e90092 55%, #ff3dcb);
+  box-shadow: 0 12px 24px rgba(192, 0, 63, 0.28);
+  color: #fff;
+  font:
+    700 16px "DM Sans",
+    sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button-entendido:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(255, 61, 203, 0.3);
+}
+
+@media (max-width: 600px) {
+  .box-terminosycodinciones {
+    width: calc(100vw - 28px);
+    max-height: calc(100dvh - 28px);
+    padding: 24px 18px 20px;
+    border-radius: 20px;
+  }
+
+  .box-titulo {
+    gap: 12px;
+  }
+
+  .logo-tyc {
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+  }
+
+  .titulo-tyc {
+    font-size: 25px;
+  }
+
+  .ul-tyc li {
+    padding: 14px 14px 14px 46px;
+  }
+
+  .ul-tyc li::before {
+    top: 14px;
+    left: 12px;
+  }
+}
