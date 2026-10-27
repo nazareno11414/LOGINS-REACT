@@ -43,9 +43,9 @@ export function PageRightForm({ users }) {
           value={contra}
           onChange={(e) => setContra(e.target.value)}
         />
-        <a href="" className="link-olvide">
-          ¿Olvidaste tu contraseña?
-        </a>
+        <Link className="link-olvide" to="/restablecerpassword">
+          ¿Olvidates la contraseña?
+        </Link>
         <button className="btn-ingresar-login">Ingresar</button>
       </form>
 

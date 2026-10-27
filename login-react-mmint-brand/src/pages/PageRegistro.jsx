@@ -2,6 +2,7 @@ import "../styles/style_loginRight.css";
 import { Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import imgLogoRight from "../image/mmint_logo.png";
+
 export function PageRegistro({ users }) {
   const [userR, setUserR] = useState("");
   const [emailR, setEmailR] = useState("");
