@@ -51,7 +51,13 @@ export function PageRightForm({ users }) {
 
       <div className="form-login-pie">
         <p>
-          ¿No tenés cuenta? <Link to="/registro">Registrate</Link>
+          ¿No tenés cuenta? <Link to="/registro">Solicita la tuya</Link>
+        </p>
+        <p>
+          ¿Preferís hablar ya?{" "}
+          <a href="https://wa.me/5491162719850?text=Hola%2C%20quiero%20info%20sobre%20MMINT%20Brand">
+            Escribinos por WhatsApp
+          </a>
         </p>
         <p>
           Al ingresar aceptás los términos de uso y la política de privacidad ©

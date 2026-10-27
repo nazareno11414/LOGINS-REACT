@@ -6,54 +6,54 @@ import imgLogoRight from "../image/mmint_logo.png";
 export function PageRegistro({ users }) {
   const [userR, setUserR] = useState("");
   const [emailR, setEmailR] = useState("");
-  const [passR, setPassR] = useState("");
-  const [passR2, setPassR2] = useState("");
+  const [marcaOEmpresa, setMarcaOEmpresa] = useState("");
+  const [cell, setCell] = useState("");
+  const [motivoTextArea, setMotivoTextArea] = useState("");
 
-  const [botonOK, setButonOK] = useState(false);
+  const [enviar, setEnviar] = useState("Enviar");
+  const [estadoEnviar, setEstadoEnviar] = useState("btn-ingresar-login");
+
   const [error, setError] = useState("");
-
-  const [registerOK, setRegisterOK] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(users);
+    //btn-envio-formulario-alta,btn-envio-formulario-no-alta
 
-    if (
-      userR.length === 0 &&
-      emailR.length === 0 &&
-      passR.length === 0 &&
-      passR2.length === 0
-    ) {
-      return setError("Campos vacios");
+    if (userR.trim("").length === 0) {
+      setEstadoEnviar("btn-envio-formulario-no-alta");
+      setError("Complete el Nombre");
+      return;
+    }
+    if (emailR.trim("").length === 0 || !emailR.includes("@")) {
+      setEstadoEnviar("btn-envio-formulario-no-alta");
+      setError("Complete el Email");
+      return;
+    }
+    if (cell.trim("").length === 0 || !/^\d+$/.test(cell.trim())) {
+      setEstadoEnviar("btn-envio-formulario-no-alta");
+      setError("Error, complete el celular");
+      return;
+    }
+    if (motivoTextArea.trim("").length === 0) {
+      setEstadoEnviar("btn-envio-formulario-no-alta");
+      setError("Complete la necesidad a controlar");
+      return;
     }
 
-    if (userR.length < 10) {
-      return setError("Usuario corto");
-    }
-
-    if (passR !== passR2 || passR.length === 0 || pass2.length === 0) {
-      return setError("Revise las contraseñas");
-    }
-
-    if (true) {
-      console.log("registrado");
-
-      setUserR("");
-      setEmailR("");
-      setPassR("");
-      setPassR2("");
-      setButonOK(false);
-    }
+    setEnviar("Enviado");
+    setEstadoEnviar("btn-envio-formulario-alta");
   };
 
   return (
     <div className="form-login">
       <div className="form-login-marca">
-        <img src={imgLogoRight} alt="" />
+        <img src={imgLogoRight} alt="logo de mmint" />
         <p className="marca-nombre">MMINT - Brand</p>
       </div>
       <form className="form-login-campos" onSubmit={handleSubmit}>
-        <label htmlFor="userRegister">Usuario</label>
+        <label htmlFor="userRegister">
+          Nombre<span>*</span>
+        </label>
         <input
           value={userR}
           onChange={(e) => setUserR(e.target.value)}
@@ -61,34 +61,55 @@ export function PageRegistro({ users }) {
           type="text"
           placeholder="Nazareno.."
         />
-        <label htmlFor="emailRegister">Email</label>
+        <label htmlFor="emailRegister">
+          Email<span>*</span>
+        </label>
         <input
           value={emailR}
           onChange={(e) => setEmailR(e.target.value)}
           id="emailRegister"
-          type="email"
+          type="text"
           placeholder="Nazareno@.."
         />
-        <label htmlFor="passRegister">Contraseña</label>
+        <label htmlFor="passRegister">Marca o Empresa</label>
         <input
-          value={passR}
-          onChange={(e) => setPassR(e.target.value)}
+          value={marcaOEmpresa}
+          onChange={(e) => setMarcaOEmpresa(e.target.value)}
           id="passRegister"
-          type="password"
-          placeholder="*****"
+          type="text"
+          placeholder="Bahco.."
         />
-        <label htmlFor="passRegister2">repita la contraseña</label>
+        <label htmlFor="passRegister2">
+          WhatsApp o teléfono<span>*</span>
+        </label>
         <input
-          value={passR2}
-          onChange={(e) => setPassR2(e.target.value)}
+          value={cell}
+          onChange={(e) => setCell(e.target.value)}
           id="passRegister2"
-          type="password"
-          placeholder="*****"
+          type="text"
+          placeholder="1140..."
         />
-        {botonOK && <p className="error-registro">{error}</p>}
-        <button className="btn-ingresar-login" onClick={() => setButonOK(true)}>
-          Registrarse
-        </button>
+        <div>
+          <label htmlFor="motivo">
+            ¿Qué necesitás controlar?<span>*</span>
+          </label>
+          <textarea
+            name="motivo"
+            value={motivoTextArea}
+            onChange={(e) => setMotivoTextArea(e.target.value)}
+          >
+            Mis productos..
+          </textarea>
+          <p>
+            Por ejemplo: cuántas marcas, cuántos productos y si trabajás con
+            distribuidores.
+          </p>
+        </div>
+        <span>*Campos obligatorios</span>
+
+        <button className={estadoEnviar}>{enviar}</button>
+        {error && <p>{error}</p>}
+        <footer>Usamos tus datos solo para responder tu consulta.</footer>
       </form>
       <Link className="btn-volver-login" to="/">
         ← Volver
