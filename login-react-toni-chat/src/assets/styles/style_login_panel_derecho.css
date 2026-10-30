@@ -1,0 +1,349 @@
+.box-lado-derecho {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  color: var(--blanco);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(16, 65, 82, 0.24), transparent 48%),
+    var(--noche);
+}
+
+.box-lado-derecho > div,
+.box-lado-derecho > div > div {
+  width: min(100%, 29rem);
+}
+
+.box-lado-derecho > div > div {
+  padding: clamp(2rem, 5vw, 3.25rem);
+  box-sizing: border-box;
+  border: 1px solid rgba(39, 238, 190, 0.6);
+  border-radius: 1rem;
+  background: linear-gradient(
+    145deg,
+    rgba(5, 18, 36, 0.96),
+    rgba(3, 16, 32, 0.9)
+  );
+  box-shadow:
+    0 0 2.5rem rgba(39, 238, 190, 0.12),
+    0 1.5rem 3.75rem rgba(0, 0, 0, 0.45);
+}
+
+.volver-al-panel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 2.25rem;
+  color: var(--nube);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.volver-al-panel:hover {
+  color: var(--menta);
+}
+
+.volver-al-panel img {
+  width: 1.15rem;
+  height: 1.15rem;
+  object-fit: contain;
+  /* El PNG es negro: se lo pasa a azul claro como el resto de los íconos */
+  filter: brightness(0) saturate(100%) invert(82%) sepia(22%) saturate(633%)
+    hue-rotate(177deg) brightness(96%);
+}
+
+.box-lado-derecho h2 {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  /* Tope bajo para que "Bienvenido de nuevo" entre en una línea dentro de
+     la tarjeta (29rem); en pantallas angostas escala con el ancho. */
+  font-size: clamp(1.3rem, 2.9vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--blanco);
+}
+
+.box-lado-derecho h2 + p {
+  max-width: 34ch;
+  margin: 0.75rem 0 2rem;
+  color: var(--gris);
+  font-size: 1.125rem;
+}
+
+.box-lado-derecho form {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 0.25rem;
+}
+
+/* Los dos <div> del form no se usan como cajas: sus hijos pasan a ser
+   celdas del form y se ubican por fila, sin modificar el JSX.
+   Filas: 1 etiqueta usuario · 2 input usuario · 3 error usuario
+          4 etiqueta contraseña · 5 input contraseña · 6 error contraseña
+          7 botón. Las filas de error miden 0 cuando no hay error. */
+.box-lado-derecho form > div {
+  display: contents;
+}
+
+.box-lado-derecho form > div:first-child label {
+  grid-row: 1;
+}
+
+/* Los inputs se ubican por id y no por type: el de contraseña cambia a
+   type="text" al mostrarla y saltaría de fila. */
+.box-lado-derecho form > div:first-child > img,
+.box-lado-derecho #userLabel {
+  grid-row: 2;
+}
+
+.box-lado-derecho form > div:first-child > .box-error {
+  grid-row: 3;
+}
+
+.box-lado-derecho form > div:nth-child(2) label {
+  grid-row: 4;
+  margin-top: 1.25rem;
+}
+
+.box-lado-derecho form > div:nth-child(2) > img,
+.box-lado-derecho #passwordLabel,
+.box-lado-derecho .verContra {
+  grid-row: 5;
+}
+
+.box-lado-derecho form > div:nth-child(2) > .box-error {
+  grid-row: 6;
+}
+
+/* El ícono comparte celda con su input y se superpone: queda centrado
+   en vertical sin depender de medidas fijas. */
+.box-lado-derecho form img {
+  grid-column: 1;
+  justify-self: start;
+  align-self: center;
+  z-index: 1;
+  margin-left: 1.1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+  pointer-events: none;
+  filter: brightness(0) saturate(100%) invert(82%) sepia(22%) saturate(633%)
+    hue-rotate(177deg) brightness(96%);
+}
+
+.box-lado-derecho label {
+  grid-column: 1;
+  margin-bottom: 0.55rem;
+  color: var(--blanco);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.box-lado-derecho input {
+  grid-column: 1;
+  width: 100%;
+  min-height: 3.45rem;
+  padding: 0 1.1rem 0 3.35rem;
+  box-sizing: border-box;
+  border: 1px solid #35516f;
+  border-radius: 0.75rem;
+  outline: none;
+  color: var(--nube);
+  background: rgba(9, 25, 42, 0.78);
+  font-family: var(--fuente-texto);
+  font-size: 1.125rem;
+}
+
+.box-lado-derecho input:focus {
+  border-color: var(--menta);
+  box-shadow: 0 0 0 3px rgba(39, 238, 190, 0.14);
+}
+
+/* Contraseña: deja lugar a la derecha para el botón del ojo */
+.box-lado-derecho #passwordLabel {
+  padding-right: 3.4rem;
+}
+
+/* Botón del ojo (mostrar / ocultar contraseña): dentro del campo, a la derecha */
+.box-lado-derecho .verContra {
+  grid-column: 1;
+  justify-self: end;
+  align-self: center;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-right: 0.45rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.6rem;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.box-lado-derecho .verContra:hover {
+  background: rgba(181, 196, 220, 0.12);
+}
+
+.box-lado-derecho .verContra:focus-visible {
+  outline: 2px solid var(--menta);
+  outline-offset: 0;
+}
+
+/* El ícono del ojo no hereda la posición de los íconos de los campos */
+.box-lado-derecho .verContra img {
+  justify-self: auto;
+  align-self: auto;
+  margin: 0;
+}
+
+/* Solo el botón de envío del form: un futuro botón (ej. el ojo de la
+   contraseña) no hereda este estilo. */
+.box-lado-derecho form > button {
+  grid-row: 7;
+  grid-column: 1;
+  min-height: 3.55rem;
+  margin-top: 1.75rem;
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  color: var(--tinta-menta);
+  background: linear-gradient(180deg, #3af1b5, #2aecb1);
+  font-family: var(--fuente-texto);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.box-lado-derecho form > button:hover {
+  filter: brightness(1.06);
+}
+
+.box-lado-derecho form > button:active {
+  transform: translateY(1px);
+}
+
+/* Foco visible para quien navega con teclado */
+.box-lado-derecho a:focus-visible,
+.box-lado-derecho form > button:focus-visible {
+  outline: 2px solid var(--menta);
+  outline-offset: 3px;
+}
+
+/* Debajo del botón: ayuda ("¿Problemas…?") y alta de cuenta ("¿No tenes…?").
+   Se ubican por posición (después del form) porque el JSX no tiene clases. */
+.box-lado-derecho form + p,
+.box-lado-derecho form ~ div > p {
+  margin: 0;
+  color: var(--gris);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.box-lado-derecho form + p {
+  margin-top: 1.5rem;
+}
+
+.box-lado-derecho form ~ div > p {
+  margin-top: 0.5rem;
+}
+
+/* Enlaces de acción: menta y subrayados, sin el azul/violeta del navegador */
+.box-lado-derecho form + p a,
+.box-lado-derecho form ~ div > p a {
+  color: var(--menta);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: filter 0.15s ease;
+}
+
+.box-lado-derecho form + p a:hover,
+.box-lado-derecho form ~ div > p a:hover {
+  filter: brightness(1.18);
+}
+
+/* Enlaces legales: discretos, centrados y separados del resto por una línea */
+.box-politica-priv-elim {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(181, 196, 220, 0.16);
+}
+
+.box-politica-priv-elim a {
+  color: var(--gris);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.box-politica-priv-elim a:hover {
+  color: var(--nube);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Pie de página (debajo de la tarjeta) */
+.box-lado-derecho footer {
+  margin-top: 1.25rem;
+  color: rgba(181, 196, 220, 0.7);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Apilado (portada arriba, formulario abajo): ancho completo y títulos que
+   escalan con la pantalla para que "Bienvenido de nuevo" entre en una línea */
+@media (max-width: 900px) {
+  .box-lado-derecho {
+    min-height: auto;
+    padding: 2rem 1.5rem 2.5rem;
+  }
+
+  .box-lado-derecho h2 {
+    font-size: clamp(1.25rem, 6.6vw, 2.2rem);
+  }
+}
+
+/* Celulares: tarjeta con menos relleno para ganar ancho útil */
+@media (max-width: 480px) {
+  .box-lado-derecho > div > div {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .volver-al-panel {
+    margin-bottom: 1.75rem;
+  }
+
+  .box-lado-derecho h2 + p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Pantallas muy grandes: tarjeta más ancha, como en el diseño */
+@media (min-width: 1680px) {
+  .box-lado-derecho > div,
+  .box-lado-derecho > div > div {
+    width: min(100%, 33rem);
+  }
+
+  .box-lado-derecho h2 {
+    font-size: 2.6rem;
+  }
+}

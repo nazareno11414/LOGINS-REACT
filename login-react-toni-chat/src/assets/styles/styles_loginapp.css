@@ -1,0 +1,54 @@
+:root {
+  --fuente-titulo: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fuente-texto: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --noche: #051224;
+  --tarjeta: #031020;
+  --campo: #09192a;
+  --menta: #27eebe;
+  --tinta-menta: #003125;
+  --blanco: #fdfeff;
+  --nube: #d7e7fc;
+  --gris: #b5c4dc;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--blanco);
+  background: var(--noche);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root > div {
+  display: flex;
+  min-height: 100vh;
+}
+
+.box-lado-izquierdo,
+.box-lado-derecho {
+  width: 50%;
+}
+
+.box-lado-izquierdo {
+  border-right: 1px solid rgba(39, 238, 190, 0.18);
+}
+
+/* Hasta 900 px los dos lados se apilan: partidos al 50 % el formulario queda
+   apretado y la portada no tiene lugar para Toni y el titular. */
+@media (max-width: 900px) {
+  #root > div {
+    flex-direction: column;
+  }
+
+  .box-lado-izquierdo,
+  .box-lado-derecho {
+    width: 100%;
+  }
+
+  .box-lado-izquierdo {
+    border-right: 0;
+    border-bottom: 1px solid rgba(39, 238, 190, 0.18);
+  }
+}

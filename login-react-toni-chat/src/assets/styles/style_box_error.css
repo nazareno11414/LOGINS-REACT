@@ -1,0 +1,55 @@
+/* Tarjeta de error que aparece debajo de un campo del login.
+   La fila donde se ubica (debajo del input) se define en
+   style_login_panel_derecho.css, junto con el resto de la grilla del form. */
+.box-error {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+  padding: 0.65rem 0.9rem;
+  box-sizing: border-box;
+  border: 1px solid rgba(232, 99, 42, 0.5);
+  border-left-width: 3px;
+  border-radius: 0.65rem;
+  color: var(--nube);
+  background: rgba(232, 99, 42, 0.1);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  animation: error-entra 0.18s ease-out;
+}
+
+.box-error p {
+  margin: 0;
+}
+
+/* El ícono no hereda la posición ni el color de los íconos de los campos
+   (por eso el selector más específico) */
+.box-lado-derecho .box-error img {
+  flex: none;
+  justify-self: auto;
+  align-self: auto;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  /* PNG negro → coral del kit (#E8632A) */
+  filter: brightness(0) saturate(100%) invert(48%) sepia(85%) saturate(2200%)
+    hue-rotate(347deg) brightness(97%) contrast(93%);
+}
+
+@keyframes error-entra {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box-error {
+    animation: none;
+  }
+}

@@ -1,0 +1,308 @@
+/* Panel izquierdo (portada de marca).
+   Tres composiciones según el ancho de la pantalla:
+   · 1366 px o más    → Toni a la derecha, titular a la izquierda y tarjetas flotantes
+   · 901 a 1365 px    → panel angosto: Toni sube y el titular queda debajo de sus pies
+   · 900 px o menos   → los dos lados se apilan y esta portada ocupa un alto acotado
+   Las medidas "cqw" son % del ancho del propio panel (container-type). */
+.panel-izquierdo {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--blanco);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1, 14, 26, 0.94) 0%,
+      rgba(1, 14, 26, 0.58) 58%,
+      rgba(1, 14, 26, 0.15) 100%
+    ),
+    linear-gradient(0deg, rgba(1, 14, 26, 0.62), transparent 46%),
+    url("../imgs/fondo_img_toni.jpeg") center / cover no-repeat;
+}
+
+.box-izquierdo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem 2.75rem;
+}
+
+.box-izquierdo img {
+  width: min(9rem, 30vw);
+  height: auto;
+  object-fit: contain;
+}
+
+.box-izquierdo h2 {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--menta);
+}
+
+.personaje-toni {
+  position: absolute;
+  z-index: 1;
+  right: 3%;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  height: 88%;
+}
+
+.personaje-toni img {
+  display: block;
+  max-width: none;
+  width: min(31rem, 66cqw);
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+.esLogan {
+  position: absolute;
+  z-index: 2;
+  left: 2.75rem;
+  bottom: 3.25rem;
+  max-width: 22rem;
+}
+
+.titular {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  /* Escala con el ancho del panel (no de la ventana) para no pisar a Toni */
+  font-size: clamp(2.6rem, 6.4cqw, 4.9rem);
+  line-height: 0.97;
+  letter-spacing: -0.03em;
+  color: var(--blanco);
+}
+
+.titular .acento {
+  display: block;
+  white-space: nowrap;
+  color: var(--menta);
+}
+
+.panel-etiqueta {
+  font-family: var(--fuente-texto);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.bajada-marca {
+  margin: 0;
+  margin-top: 1rem;
+  white-space: nowrap;
+  color: var(--nube);
+  font-size: clamp(0.9rem, 1.2vw, 1.25rem);
+  line-height: 1.5;
+}
+
+/* ---------- Tarjetas flotantes (escena) ---------- */
+.escena {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Ocultas por defecto: solo se muestran en pantallas anchas (ver abajo),
+   porque en un panel angosto le taparían la cara a Toni. */
+.flota {
+  display: none;
+  position: absolute;
+  max-width: 17rem;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--nube);
+  background: rgba(9, 25, 42, 0.62); /* var(--campo) con transparencia */
+  border: 1px solid rgba(39, 238, 190, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  animation:
+    entra 0.7s ease forwards,
+    flota 6s ease-in-out infinite;
+}
+.flota p {
+  margin: 0.25rem 0 0;
+}
+.flota b {
+  color: var(--blanco);
+}
+.flota small {
+  display: block;
+  color: var(--gris);
+  font-size: 0.8rem;
+}
+
+.flota__quien {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+.flota__quien--toni {
+  color: var(--menta);
+}
+
+/* Posiciones en % para que escalen con la pantalla */
+.flota--cliente {
+  top: 22%;
+  left: 6%;
+  animation-delay: 0.4s, 0.4s;
+}
+.flota--toni {
+  top: 38%;
+  left: 20%;
+  animation-delay: 1.2s, 1.2s;
+}
+.flota--ticket {
+  top: 54%;
+  left: 8%;
+  animation-delay: 2s, 2s;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.flota__punto {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--menta);
+  box-shadow: 0 0 0 4px rgba(39, 238, 190, 0.2);
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flota {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+/* Pantallas anchas: hay lugar para las tarjetas a la izquierda de Toni */
+@media (min-width: 1366px) {
+  .flota {
+    display: block;
+  }
+  .flota--ticket {
+    display: flex;
+  }
+}
+
+/* Accesibilidad: sin animación continua si la persona pidió menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .flota {
+    animation: entra 0.4s ease forwards;
+  }
+}
+
+/* ---------- Panel angosto, lado a lado (901 a 1365 px) ----------
+   Toni sube y el titular queda debajo de sus pies en lugar de pisarlo. */
+@media (min-width: 901px) and (max-width: 1365px) {
+  .box-izquierdo {
+    padding: 2rem 1.75rem;
+  }
+
+  .personaje-toni {
+    right: 4%;
+    bottom: 10.5rem;
+    width: 62cqw;
+    height: calc(100% - 17rem);
+  }
+
+  .personaje-toni img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .esLogan {
+    left: 1.75rem;
+    right: 1.75rem;
+    bottom: 2.25rem;
+    max-width: none;
+  }
+
+  .titular {
+    font-size: clamp(2rem, 8cqw, 2.9rem);
+  }
+
+  .bajada-marca {
+    white-space: normal;
+  }
+}
+
+/* ---------- Apilado (900 px o menos) ----------
+   La portada pasa a ser un bloque de alto acotado arriba del formulario. */
+@media (max-width: 900px) {
+  .panel-izquierdo {
+    height: min(clamp(28rem, 90vw, 40rem), 100vh);
+    min-height: 0;
+  }
+
+  .box-izquierdo {
+    padding: 1.5rem;
+  }
+
+  .box-izquierdo h2 {
+    padding-left: 0.75rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+  }
+
+  .personaje-toni {
+    right: 2%;
+    bottom: 0;
+    width: 44cqw;
+    height: 88%;
+  }
+
+  .personaje-toni img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* El texto ocupa solo el espacio a la izquierda de Toni */
+  .esLogan {
+    left: 1.5rem;
+    right: auto;
+    bottom: 2rem;
+    width: calc(100% - 44cqw - 2rem);
+    max-width: none;
+  }
+
+  .titular {
+    font-size: clamp(1.6rem, 7.6vw, 3rem);
+  }
+
+  .bajada-marca {
+    white-space: normal;
+    margin-top: 0.75rem;
+    font-size: clamp(0.85rem, 2.4vw, 1.15rem);
+  }
+}
