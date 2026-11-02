@@ -104,7 +104,6 @@ Es la **pantalla de acceso (front)**. Todavía falta:
 
 - **Conectar la autenticación.** Hoy el formulario solo valida que los campos no estén vacíos; no hay llamada a un servidor ni sesión.
 - **Mensajes de error más específicos** (usuario o contraseña incorrectos) cuando exista el backend.
-- **Corregir el campo de contraseña.** Hoy arranca visible y el botón del ojo funciona al revés: al tocarlo, la oculta.
 
 ## Tecnologías
 

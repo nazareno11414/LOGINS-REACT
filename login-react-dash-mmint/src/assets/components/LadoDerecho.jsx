@@ -10,7 +10,7 @@ export function LadoDerecho() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
-  const botonMostrarPass = verPass ? "password" : "text";
+  const botonMostrarPass = verPass ? "text" : "password";
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
