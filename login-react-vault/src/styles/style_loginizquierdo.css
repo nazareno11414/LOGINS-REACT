@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap");
+
+body {
+  margin: 0;
+}
+
+.box-login {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.48fr) minmax(360px, 1fr);
+  background: #010214;
+  color: #fff;
+  font-family: "DM Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.box-login > div {
+  min-width: 0;
+}
+
+.box-login > div + div {
+  border-left: 1px solid #1a1d29;
+}
+
+.box-login-izquierdo,
+.box-login-izquierdo::before,
+.box-login-izquierdo::after {
+  box-sizing: border-box;
+}
+
+.box-login-izquierdo {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(72px, 15vh, 160px) clamp(48px, 7vw, 110px) 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  background-color: #010214;
+  color: #fff;
+}
+
+.box-login-izquierdo::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(33, 155, 255, 0.2), transparent 34%),
+    radial-gradient(circle at 90% 82%, rgba(255, 61, 203, 0.22), transparent 38%),
+    linear-gradient(180deg, rgba(1, 2, 20, 0.06), rgba(1, 2, 20, 0.5)),
+    linear-gradient(90deg, rgba(1, 2, 20, 0.72), rgba(1, 2, 20, 0.3) 60%, rgba(1, 2, 20, 0.16)),
+    url("../imgs/imagenfodno.png");
+  background-position: center, center, center, center, 58% 55%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box-login-izquierdo::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -16%;
+  bottom: -28%;
+  width: 58%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(85, 0, 161, 0.24), rgba(255, 61, 203, 0.07) 40%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.box-login-izquierdo h2 {
+  max-width: 790px;
+  margin: 0 0 22px;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(36px, 3.25vw, 56px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -1.25px;
+  text-wrap: balance;
+}
+
+.box-login-izquierdo > p {
+  max-width: min(100%, 44ch);
+  margin: 0;
+  color: #b7c7e4;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.65;
+  text-wrap: balance;
+  text-shadow: 0 2px 10px rgba(1, 2, 20, 0.85);
+}
+
+.box-login-izquierdo > footer {
+  position: absolute;
+  bottom: 28px;
+  left: clamp(48px, 7vw, 110px);
+  right: 32px;
+  color: #6b6f85;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* El wrapper comparte clase con el panel: evita duplicar fondo y espacio. */
+.box-login > .box-login-izquierdo {
+  min-height: 0;
+  padding: 0;
+  background: none;
+}
+
+.box-login > .box-login-izquierdo::before,
+.box-login > .box-login-izquierdo::after {
+  content: none;
+}
+
+.box-login > .box-login-izquierdo > .box-login-izquierdo {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .box-login {
+    display: block;
+  }
+
+  .box-login > div + div {
+    border-left: 0;
+  }
+
+  .box-login-izquierdo {
+    display: none;
+  }
+}
+
+
+
+

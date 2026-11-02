@@ -1,0 +1,272 @@
+/* Panel derecho: selectores acotados para no afectar el grid exterior. */
+.box-login-derecho,
+.box-login-derecho *,
+.box-login-derecho *::before,
+.box-login-derecho *::after {
+  box-sizing: border-box;
+}
+
+.box-login-derecho {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(12px, 3svh, 28px) 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(95, 47, 215, .13), transparent 48%),
+    radial-gradient(ellipse at 0 100%, rgba(0, 153, 255, .08), transparent 48%),
+    #010214;
+}
+
+.box-login-derecho > div {
+  width: 100%;
+  min-width: 0;
+}
+
+.box-login-derecho .box-login {
+  width: min(100%, 420px);
+  min-height: 0;
+  margin: 0 auto;
+  padding: 22px 30px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, #03152c 0%, #030a1b 38%, #09071d 100%) padding-box,
+    linear-gradient(135deg, #009dff, #244888 42%, #8a5fe3 75%, #334a8f) border-box;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, .42), inset 0 1px 18px rgba(66, 99, 255, .08);
+  color: #f5f6ff;
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+.box-login-derecho .box-login > div {
+  border-left: 0;
+}
+
+.box-login-derecho .box-logo {
+  margin: 0 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(109, 135, 199, .2);
+  text-align: center;
+}
+
+.box-login-derecho .box-logo img {
+  display: block;
+  width: 140px;
+  height: 146px;
+  margin: 0 auto 12px;
+  object-fit: contain;
+  border-radius: 14px;
+  filter: drop-shadow(0 5px 14px rgba(44, 98, 255, .2));
+}
+
+.box-login-derecho .box-logo h2 {
+  margin: 0;
+  color: #f4f5fc;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.6px;
+}
+
+.box-login-derecho .box-logo h2 span {
+  background: linear-gradient(90deg, #427dff, #c04cff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.box-login-derecho .box-logo p {
+  margin: 8px 0 0;
+  color: #8f9bbf;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.box-login-derecho .box-login > h4 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.7px;
+  text-align: center;
+}
+
+.box-login-derecho .box-login > p {
+  margin: 0 0 20px;
+  color: #929fbe;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.box-login-derecho form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.box-login-derecho form > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.box-login-derecho form label {
+  margin: 0 0 9px;
+  color: #9daace;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.box-login-derecho form input {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 12px 15px 12px 43px;
+  border: 1px solid #293251;
+  border-radius: 10px;
+  outline: none;
+  background: #090e1d;
+  color: #f5f6ff;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.box-login-derecho form > div:has(button) input {
+  padding-right: 48px;
+}
+
+.box-login-derecho form input::placeholder {
+  color: #687696;
+  opacity: 1;
+}
+
+.box-login-derecho form > div > img {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: brightness(0) invert(.65) sepia(.2) saturate(1.5) hue-rotate(180deg);
+}
+
+.box-login-derecho form input:focus-visible {
+  border-color: #398aff;
+  box-shadow: 0 0 0 3px rgba(43, 128, 255, .16);
+}
+
+.box-login-derecho form button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: transform .2s ease, filter .2s ease, background-color .2s ease;
+}
+
+/* Boton de visibilidad dentro del campo de contrasena. */
+.box-login-derecho form > div > button {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  padding: 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: transparent;
+  color: #9daace;
+  line-height: 1;
+}
+
+.box-login-derecho form > div > button img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) invert(.65) sepia(.2) saturate(1.5) hue-rotate(180deg);
+}
+
+.box-login-derecho form > div > button:hover {
+  background: rgba(91, 126, 219, .12);
+}
+
+.box-login-derecho form > button {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 2px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: linear-gradient(105deg, #00b7f5 0%, #0765ff 43%, #8c12f3 100%);
+  box-shadow: 0 8px 22px rgba(53, 67, 255, .22);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.box-login-derecho form > button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.box-login-derecho form > button:active {
+  transform: translateY(0);
+}
+
+.box-login-derecho form button:focus-visible {
+  outline: 2px solid #87caff;
+  outline-offset: 2px;
+}
+
+.box-login-derecho form > .modal-error {
+  width: 100%;
+  margin: -4px 0 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 100, 133, .35);
+  border-radius: 10px;
+  background: rgba(255, 77, 109, .09);
+  color: #ff9aaf;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 550px) {
+  .box-login-derecho {
+    padding: clamp(12px, 3svh, 24px) 18px;
+  }
+
+  .box-login-derecho .box-login {
+    padding: 22px;
+    border-radius: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box-login-derecho form input,
+  .box-login-derecho form button {
+    transition: none;
+  }
+}
+
+
+
+
