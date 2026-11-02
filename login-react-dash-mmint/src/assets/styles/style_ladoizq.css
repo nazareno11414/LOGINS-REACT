@@ -1,0 +1,70 @@
+.box-izq {
+  position: relative;
+  isolation: isolate;
+  flex: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(72px, 15vh, 160px) clamp(48px, 7vw, 110px) 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(1, 2, 20, .88) 0%, rgba(1, 2, 20, .72) 32%, rgba(1, 2, 20, .2) 65%, rgba(1, 2, 20, .85) 100%),
+    radial-gradient(ellipse at 90% 82%, rgba(145, 48, 219, .22), transparent 48%),
+    linear-gradient(90deg, rgba(1, 2, 20, .5), rgba(1, 2, 20, .18)),
+    url("../imgs/fondoizq.jpg");
+  background-color: #010214;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.box-izq::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(76, 139, 221, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(76, 139, 221, .045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(135deg, transparent, #000);
+}
+
+.box-izq h2 {
+  max-width: 790px;
+  margin: 0 0 22px;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(36px, 3.25vw, 56px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -1.25px;
+  text-wrap: balance;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .75);
+}
+
+.box-izq > p {
+  max-width: min(100%, 44ch);
+  margin: 0;
+  color: #eef3ff;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.65;
+  text-wrap: balance;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .75);
+}
+
+.box-izq > footer {
+  position: absolute;
+  bottom: 28px;
+  left: clamp(48px, 7vw, 110px);
+  right: 32px;
+  color: #c9d5ee;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+

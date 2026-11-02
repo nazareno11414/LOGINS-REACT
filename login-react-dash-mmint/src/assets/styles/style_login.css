@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #010214;
+  color: #fff;
+  font-family: "DM Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root > .box-login {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.48fr) minmax(360px, 1fr);
+  background: #010214;
+}
+
+#root > .box-login > div {
+  min-width: 0;
+}
+
+.box-login-izquierdo {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-login-derecho {
+  border-left: 1px solid #1a1d29;
+}
+
+@media (max-width: 900px) {
+  #root > .box-login {
+    display: block;
+  }
+
+  #root > .box-login > .box-login-izquierdo {
+    display: none;
+  }
+
+  .box-login-derecho {
+    min-height: 100vh;
+    min-height: 100svh;
+    border-left: 0;
+  }
+}
